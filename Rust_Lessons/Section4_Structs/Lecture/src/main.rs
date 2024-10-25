@@ -90,12 +90,13 @@ fn main() {
     //Thus, we have a dangling reference.
     //This is where lifetime annotations start to help think through this code, and help the 
     //Rust compiler find these dangling references
+    //Most lifetime errors are the result of dangling references, so it is better to solve it this way, rather than with the static keyword...
     //println!("{}", r); //Gives an error
 
     let str1 = String::from("This is my string");
     let x = MyString{text:str1.as_str()};
 
-    //When we give a reference a static liftime, the reference can live for the entire duration of the program (think static keyword)
+    //When we give a reference a static lifetime, the reference can live for the entire duration of the program (think static keyword)
 
     let s: &'static str = "I have a static lifetime";
 }
@@ -112,7 +113,7 @@ fn build_user(username: String) -> User
 
 //Create a function that, assigns here the lifetime, with a parameter called x, with a specific lifetime, and returns an explicit lifetime
 //The histroy of liftimes has evolved as Rust has evolved.
-//The compiler uses three rules to infer these liftimes, when there aren't explicit annotations
+//The compiler uses three rules to infer these lifetimes, when there aren't explicit annotations
 //1. Each parameter that is a reference, gets its own lifetime parameter.
 //2. If there is exactly one input lifetime parameter, that lifetime is assigned to all output lifetime parameters
 //3. If there are multiple input liftime parameters, but one is a reference to self or mut self, the lifetime of self is assigned to all output lifetime parameters

@@ -12,6 +12,9 @@ fn main()
     //2. There can only be one owner at a time
     //3. When the owner goes out of scope, the value will be dropped (also known as freeze)
 
+    //To create a new directory using cargo, use the command "cargo new <name>"
+    //To run the program with cargo, use cargo run
+
     let var = 1;
     //This is a fixed size and is pushed on the stack
 
