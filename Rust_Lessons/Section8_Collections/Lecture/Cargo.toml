@@ -1,0 +1,23 @@
+#Tom's Obvious, Minimal Language (.toml) is a file format for configuration files. 
+#It is intended to be easy to read and write due to obvious semantics which aim to be "minimal", 
+#and it is designed to map unambiguously to a dictionary. 
+
+[package]
+name = "Lecture"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+#We want to bring in the rand package
+rand = "0.8.5"
+
+#This is the notation for defining "features" with conditional compilation.
+#To call the Rust souce code that is defined under "allowed", you would type "cargo run --features "vectors"
+[features]
+vectors = []
+bheap = []
+BTrees = []
+maps = ["BTrees"]
+sets = []
+
+#To run all features, I would type --all-features as the flag
