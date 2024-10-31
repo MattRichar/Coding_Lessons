@@ -18,6 +18,12 @@ use std::collections::BinaryHeap;
 use std::collections::HashMap;
 use std::collections::BTreeMap;
 
+//Sets are a collection we can use for quickly checking if a valu exists.
+//Sets can never contain multiple copies of the same value. A set is similar
+//to map, except a set only has keys and not a key-pair value.
+#[cfg(feature = "sets")]
+use::std::collections::HashSet;
+
 
 
 fn main() {
@@ -147,8 +153,55 @@ fn main() {
     }
     
 
+    //There is a hashset and a btree set.
     #[cfg(feature = "sets")]
     {
+        let mut hs = HashSet::new();
+
+        hs.insert(1);
+        hs.insert(2);
+        hs.insert(3);
+        hs.insert(4);
+
+        for x in hs.iter(){
+            println!("Iter: {}", x);
+        }
+        
+        //Removes the second element
+        hs.remove(&2);
+
+        for x in hs.iter(){
+            println!("Iter: {}", x);
+        }
+
+        let mut hs2 = HashSet::new();
+
+        hs2.insert(1);
+        hs2.insert(3);
+        hs2.insert(5);
+        hs2.insert(7);
+
+        for x in hs.intersection(&hs2){
+            println!("Intersection: {}", x);
+        }
+
+        let intersection = &hs & &hs2;//shorthand intersection using the binary bitwise & operator
+
+        for x in intersection{
+            println!("Short hand way: {}", x);
+        }
+
+        let union = &hs | &hs2;
+
+        for x in union{
+            println!("Short hand union way: {}", x);
+        }
+
+        let dif = &hs - &hs2;
+
+        for x in dif{
+            println!("Short hand dif way: {}", x);
+        }
 
     }
 }
