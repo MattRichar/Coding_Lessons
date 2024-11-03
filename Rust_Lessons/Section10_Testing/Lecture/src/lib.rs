@@ -1,4 +1,5 @@
 //cfg stands for configuration, and to only compile when <> is entered
+//If you want to call any specific subset of the test is to type in the name for that subset.
 #[cfg(test)]
 mod tests{
     //In order for this function to be available, we need the following use

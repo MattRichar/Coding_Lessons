@@ -1,0 +1,12 @@
+[package]
+name = "Lecture"
+version = "0.1.0"
+edition = "2021"
+
+#https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+text-colorizer = "1"
+#This will enable and disable coloring
+regex = "1"
+#regex is short for regular expression. It will allow us to manipulate regular expressions into compiled code.
